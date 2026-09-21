@@ -1,0 +1,39 @@
+{
+    "name": "pteal79/image-annotator",
+    "version": "1.0.0",
+    "description": "A full-screen native editor for drawing lines, rectangles and text on an image",
+    "namespace": "ImageAnnotator",
+    "keywords": ["image", "annotation", "markup", "drawing"],
+    "category": "media",
+    "license": "MIT",
+    "platforms": ["android", "ios"],
+    "bridge_functions": [
+        {
+            "name": "ImageAnnotator.Open",
+            "android": "com.pteal79.plugins.imageannotator.ImageAnnotatorFunctions.Open",
+            "ios": "ImageAnnotatorFunctions.Open",
+            "description": "Present the annotation editor over a local image. The result arrives as an event"
+        }
+    ],
+    "events": [
+        "Pteal79\\ImageAnnotator\\Events\\ImageAnnotationSaved",
+        "Pteal79\\ImageAnnotator\\Events\\ImageAnnotationCancelled",
+        "Pteal79\\ImageAnnotator\\Events\\ImageAnnotationFailed"
+    ],
+    "android": {
+        "min_version": 26,
+        "permissions": [],
+        "activities": [
+            {
+                "name": ".AnnotatorActivity",
+                "theme": "@style/Theme.AppCompat.NoActionBar",
+                "exported": false,
+                "configChanges": "orientation|screenSize|screenLayout|smallestScreenSize|keyboard|keyboardHidden|uiMode|density"
+            }
+        ]
+    },
+    "ios": {
+        "min_version": "18.2",
+        "info_plist": {}
+    }
+}
